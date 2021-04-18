@@ -1,0 +1,62 @@
+
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        
+<app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+         
+
+        <ngx-alerts></ngx-alerts>
+          
+
+    <mat-form-field class="example-full-width">
+
+      <mat-label>Email</mat-label>
+      <input type="email" [(ngModel)]="email"  matInput placeholder="example@gmail.com">
+    </mat-form-field>
+        <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+      <input type="email" [(ngModel)]="firstname"  matInput placeholder="Mark Jayson">
+    </mat-form-field>
+        <mat-form-field class="example-full-width">
+    <mat-label>Surname</mat-label>
+      <input type="email" [(ngModel)]="surname"  matInput placeholder="Warnakulahewa">
+    </mat-form-field>
+  
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input [(ngModel)]="password" matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <!-- <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input [(ngModel)]="password" matInput [type]="hide">
+
+            
+    <input type="checkbox" (click)="wew()">
+                            
+    Show Password
+              
+    </mat-form-field> -->
+
+
+
+        <div class="example-button-row">
+            <button (click)="registerstaff()" [disabled]="!email || !firstname || !surname || !password" mat-flat-button color="primary">Register Staff</button>
+
+        </div>
+  
+            
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<app-footer></app-footer>
+
+

@@ -1,0 +1,59 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-drawer {
+  width: 350px;
+
+}
+
+
+mat-drawer-container {
+  height: 100%;
+}
+
+
+
+
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+
+  .color {
+      background-color: rgb(19, 149, 172);
+  }
+
+
+  .nopost {
+       
+    font-size: 24px;
+    font-weight: 500;
+    color: #303940;
+    text-align: center;
+   }
+
+   
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(50, 35, 180); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0b010e; 
+}

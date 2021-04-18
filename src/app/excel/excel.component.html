@@ -1,0 +1,127 @@
+
+
+<app-customerheader (toggleSideBarForMe)="sideBarToggler()"></app-customerheader>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        
+        <app-staffsidebar></app-staffsidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        
+<ngx-alerts></ngx-alerts>
+           
+    
+<table>
+    <tr>
+      <th>1stHeader</th>
+      <th>2ndHeader</th>
+      <th>3rdHeader</th>
+      
+      <th>4thHeader</th>
+      
+      <th>5thHeader</th>
+      
+      <th>6thHeader</th>
+      
+    </tr>
+    <tr>
+        <td><textarea type="text" placeholder="Enter Some Text" [(ngModel)]="firstheader1stparag"></textarea></td>
+        
+        <td><textarea type="text" [(ngModel)]="secondheader1stparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+        <td><textarea type="text" [(ngModel)]="thirdheader1stparag" placeholder="Enter Some Text" ></textarea></td>
+        
+        
+        <td><textarea type="text" [(ngModel)]="fourthheader1stparag" placeholder="Enter Some Text" ></textarea></td>
+       
+        <td><textarea type="text" [(ngModel)]="fifthheader1stparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+      </tr>
+      <tr>
+        <td><textarea [(ngModel)]="firstheader2ndparag" type="text" placeholder="Enter Some Text" ></textarea></td>
+        
+        <td><textarea [(ngModel)]="secondheader2ndparag" type="text" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+        <td><textarea type="text" [(ngModel)]="thirdheader2ndparag" placeholder="Enter Some Text" ></textarea></td>
+        
+        
+        <td><textarea type="text" [(ngModel)]="fourthheader2ndparag" placeholder="Enter Some Text" ></textarea></td>
+       
+        <td><textarea type="text" [(ngModel)]="fifthheader2ndparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+      </tr>
+      <tr>
+        <td><textarea type="text" [(ngModel)]="firstheader3rdparag" placeholder="Enter Some Text" ></textarea></td>
+        
+        <td><textarea type="text" [(ngModel)]="secondheader3rdparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+        <td><textarea type="text" [(ngModel)]="thirdheader3rdparag" placeholder="Enter Some Text" ></textarea></td>
+        
+        
+        <td><textarea type="text" [(ngModel)]="fourthheader3rdparag" placeholder="Enter Some Text" ></textarea></td>
+       
+        <td><textarea type="text" [(ngModel)]="fifthheader3rdparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+      </tr>
+      <tr>
+        <td><textarea [(ngModel)]="firstheader4thparag" type="text" placeholder="Enter Some Text" ></textarea></td>
+        
+        <td><textarea type="text" [(ngModel)]="secondheader4thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+        <td><textarea type="text" [(ngModel)]="thirdheader4thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+        
+        <td><textarea type="text" [(ngModel)]="fourthheader4thparag" placeholder="Enter Some Text" ></textarea></td>
+       
+        <td><textarea type="text" [(ngModel)]="fifthheader4thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+      </tr>
+      <tr>
+        <td><textarea [(ngModel)]="firstheader5thparag" type="text" placeholder="Enter Some Text" ></textarea></td>
+        
+        <td><textarea type="text" [(ngModel)]="secondheader5thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+        <td><textarea type="text" [(ngModel)]="thirdheader5thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+        
+        <td><textarea type="text" [(ngModel)]="fourthheader5thparag" placeholder="Enter Some Text" ></textarea></td>
+       
+        <td><textarea type="text" [(ngModel)]="fifthheader5thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+      </tr>
+      <tr>
+        <td><textarea [(ngModel)]="firstheader6thparag" type="text" placeholder="Enter Some Text" ></textarea></td>
+        
+        <td><textarea type="text" [(ngModel)]="secondheader6thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+        <td><textarea type="text" [(ngModel)]="thirdheader6thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+        
+        <td><textarea type="text" [(ngModel)]="fourthheader6thparag" placeholder="Enter Some Text" ></textarea></td>
+       
+        <td><textarea type="text" [(ngModel)]="fifthheader6thparag" placeholder="Enter Some Text" ></textarea></td>
+        
+       
+      </tr>
+  </table>
+
+   <br>
+ <button mat-flat-button color="primary" (click)="exportAsXLSX()">Download in Excel</button>
+        
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+

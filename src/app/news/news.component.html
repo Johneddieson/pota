@@ -1,0 +1,96 @@
+
+    <mat-toolbar class="toolbar">
+        <button  mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <img src="https://img.icons8.com/doodle/30/000000/whatsapp.png"/>
+            +97433557703
+          </button>
+          
+      
+       <span class="example-spacer"></span>
+     
+      <button (click)="w('All Categories')" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        All Categories
+      </button>
+      
+      
+      <span class="example-spacer"></span>
+      <button (click)="w('Cafe News')" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        Cafe News
+      </button> 
+      
+      <span class="example-spacer"></span>
+      <button (click)="w('Announcement')" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        Announcement
+      </button>
+      
+      
+      <span class="example-spacer"></span>
+      
+      <button (click)="w('Promotions')"   mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        Promotions
+      </button>
+      
+      <span class="example-spacer"></span>
+      <button routerLink="/login" *ngIf="displayname == null" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        Login & Signup
+      </button>
+      <button routerLink="/home" *ngIf="displayname == 'customer'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        Go To Shopping Page
+      </button>
+      
+      <button routerLink="/staffhomepage" *ngIf="displayname == 'staff'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        Go To Staff Home Page
+      </button>
+      
+      <button routerLink="/admin" *ngIf="displayname == 'admin'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        Go To Admin Home Page
+      </button>
+      <span class="example-spacer"></span>
+      
+   <a href="https://www.facebook.com/clayovenqatar" target="_blank">
+    
+    <button  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+
+        <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png"/>
+      
+    </button>
+   </a>
+  
+
+      <a href="https://www.instagram.com/clayovencafe?r=nametag" target="_blank">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <img src="https://img.icons8.com/fluent/30/000000/instagram-new.png"/>
+        </button>
+        
+    </a>
+     
+     
+    </mat-toolbar>
+  <app-nonews *ngIf="newslength == 0"></app-nonews>
+
+
+  <div class="container mt-5" *ngIf="newslength > 0">
+
+    <h1>All News and Promotions</h1>
+
+    <div class="row">
+        <div class="col-lg-3 mt-3 mb-3" *ngFor="let data of news">
+                    <div class="box">
+                        
+            <img src="{{data.photo}}" width="100%">
+            <h5 class="mt-2 mb-2">{{data.title}}</h5>
+
+            <h3 *ngIf="data.edited">Edited {{timefromnow(data.time)}}</h3>
+            
+            <h3 *ngIf="!data.edited">{{timefromnow(data.time)}}</h3>
+            <a routerLink="/news/{{data.id}}" target="_blank" class="btn btn-dark btn-sm mt-2">Read More</a>
+                    </div>
+        </div>
+      
+       
+        
+       
+       
+
+    </div>
+  </div>

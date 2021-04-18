@@ -1,0 +1,32 @@
+<app-customerheader (toggleSideBarForMe)="sideBarToggler()"></app-customerheader>
+
+<mat-drawer-container>
+    <mat-drawer  mode="side" [opened]="sideBarOpen">
+        
+        <app-staffsidebar></app-staffsidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+<app-noshced *ngIf="schedlength == 0"></app-noshced>
+
+        <div *ngIf="schedlength > 0">
+<!-- <p>{{ date | date: 'h:mm a' }}</p> -->
+<ngx-alerts></ngx-alerts>
+            <mat-list>
+                <div mat-subheader>My Schedules</div>
+                <mat-list-item *ngFor="let data of schedule">
+                    <span class="material-icons">
+                        access_time_filled
+                        </span>
+                  <div mat-line *ngIf="!data.finish" [hidden]="data.timein == true"><button (click)="timein(data.date, data.from, data.to, data.id, data.staff)"  [hidden]="data.date != (date | date: 'M/dd/yyyy')"  mat-flat-button color="primary">Time In</button></div>
+                  <div mat-line *ngIf="data.timein == true" [hidden]="data.finish == true"><button (click)="timeout(data.date, data.from, data.to, data.id, data.staff)"  [hidden]="data.date != (date | date: 'M/dd/yyyy')"  mat-flat-button color="primary">Time Out</button></div>
+                  <div mat-line *ngIf="data.finish == true"><button mat-flat-button color="primary" disabled>Done!</button></div>
+                 
+                  <div mat-line> {{data.date}} - From {{data.from}} To {{data.to}} </div>
+                </mat-list-item>
+               
+              </mat-list>
+            
+        </div>
+        
+    </mat-drawer-content>
+</mat-drawer-container>

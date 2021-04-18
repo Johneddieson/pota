@@ -1,0 +1,71 @@
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        
+<app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+     
+      
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light" id="paragraph">News, Announcement, & Promotions</h1>
+        <p>
+          
+          <button (click)="w('All Categories')"  class="btn btn-danger my-2">All Categories</button>
+          <button (click)="w('Cafe News')"  class="btn btn-primary my-2">Cafe News</button>
+          <button (click)="w('Announcement')"  class="btn btn-secondary my-2">Announcement</button>
+          
+          <button (click)="w('Promotions')" class="btn btn-warning my-2">Promotions</button>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container" *ngFor="let data of news">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+             <img src="{{data.photo}}" width="100%" height="225">
+            <div class="card-body">
+              <p class="card-text">{{data.title}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" routerLink="/view/{{data.id}}" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" routerLink="/edit/{{data.id}}" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">Created on {{data.date}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+     
+        
+       
+
+       
+      
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    
+      
+
+
+        
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<!-- <app-footer></app-footer> -->

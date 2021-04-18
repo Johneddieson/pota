@@ -1,0 +1,149 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>Offcanvas navbar template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/offcanvas-navbar/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+
+    
+  </head>
+  <body class="bg-light">
+ 
+
+
+<main class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+    <!-- <img class="me-3" src="https://ucarecdn.com/685a4074-8056-407d-b597-5eb63d76bcf5/Clay.png" alt="" width="100" height="100"> -->
+    <div class="lh-1">
+      <h1 class="h6 mb-0 text-white lh-1">Order Details</h1>
+      <small>{{customerEmail}}</small>
+    </div>
+  </div>
+
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Total Orders Approved</h6>
+    <div class="d-flex text-muted pt-3" *ngFor="let data of approved">
+          <img src="https://ucarecdn.com/{{data.file}}/{{data.photoname}}" class="avatar">
+
+      <p class="pb-3 mb-0 small lh-sm border-bottom">
+        <strong class="d-block text-gray-dark">{{data.category}} - {{data.name}} {{data.quantity}} pieces</strong>
+          {{data.customerfirstname}} {{data.customerlastname}}, The shipping address is {{data.customeraddress}} & {{data.customeraddress2}} and the cellphonenumber is {{data.customernumber}}.
+          {{data.wholedate}}
+      </p>
+    
+  
+      <small class="d-block text-end mt-3">
+      
+          <button mat-button *ngIf="!data.approve" >Approve</button>
+        <button disabled *ngIf="data.approve" mat-button>Approved <mat-icon>check_circle</mat-icon></button>    
+        </small>
+  </div>
+  </div>
+
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Order for today</h6>
+        
+      <div class="d-flex text-muted pt-3" *ngFor="let data of order">
+            <img src="https://ucarecdn.com/{{data.file}}/{{data.photoname}}" class="avatar">
+
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">{{data.category}} - {{data.name}} {{data.quantity}} pieces</strong>
+            {{data.customerfirstname}} {{data.customerlastname}}, The shipping address is {{data.customeraddress}} & {{data.customeraddress2}} and the cellphonenumber is {{data.customernumber}}.
+            {{data.wholedate}}
+        </p>
+      
+    
+        <small class="d-block text-end mt-3">
+        
+            <button mat-button *ngIf="!data.approve" (click)="approve(data.id, data.category, data.customeraddress, data.customeraddress2, data.customeremail, data.customerfirstname, data.customerlastname, data.customernumber, data.customeruid, data.date, data.file, data.name, data.photoname, data.price, data.productid, data.quantity, data.subtotal, data.wholedate)">Approve</button>
+          <button disabled *ngIf="data.approve" mat-button>Approved <mat-icon>check_circle</mat-icon></button>    
+          </small>
+    </div>
+      <small class="d-block text-end mt-3">
+        
+    <button (click)="readytoDeliver()" [hidden]="trueapprove <= 0"   *ngIf=" trueapprove == totalapprove" mat-button>Ready to Deliver</button>
+      </small>
+  </div>
+</main>
+
+
+  </body>
+</html>
+
+
+    <!-- <ngx-alerts></ngx-alerts>
+  <main class="container">
+  
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+      <h6 class="border-bottom pb-2 mb-0">Total Orders Approved</h6>
+      <div class="d-flex text-muted pt-3" *ngFor="let data of approved">
+            <img src="https://ucarecdn.com/{{data.file}}/{{data.photoname}}" class="avatar">
+
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">{{data.category}} - {{data.name}} {{data.quantity}} pieces</strong>
+            {{data.customerfirstname}} {{data.customerlastname}}, The shipping address is {{data.customeraddress}} & {{data.customeraddress2}} and the cellphonenumber is {{data.customernumber}}.
+            {{data.wholedate}}
+        </p>
+      
+    
+        <small class="d-block text-end mt-3">
+        
+            <button mat-button *ngIf="!data.approve" >Approve</button>
+          <button disabled *ngIf="data.approve" mat-button>Approved <mat-icon>check_circle</mat-icon></button>    
+          </small>
+    </div>
+    
+    </div>
+  
+  </main>
+
+
+<main class="container">
+  
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+      <h6 class="border-bottom pb-2 mb-0">Order for today</h6>
+        
+      <div class="d-flex text-muted pt-3" *ngFor="let data of order">
+            <img src="https://ucarecdn.com/{{data.file}}/{{data.photoname}}" class="avatar">
+
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">{{data.category}} - {{data.name}} {{data.quantity}} pieces</strong>
+            {{data.customerfirstname}} {{data.customerlastname}}, The shipping address is {{data.customeraddress}} & {{data.customeraddress2}} and the cellphonenumber is {{data.customernumber}}.
+            {{data.wholedate}}
+        </p>
+      
+    
+        <small class="d-block text-end mt-3">
+        
+            <button mat-button *ngIf="!data.approve" (click)="approve(data.id, data.category, data.customeraddress, data.customeraddress2, data.customeremail, data.customerfirstname, data.customerlastname, data.customernumber, data.customeruid, data.date, data.file, data.name, data.photoname, data.price, data.productid, data.quantity, data.subtotal, data.wholedate)">Approve</button>
+          <button disabled *ngIf="data.approve" mat-button>Approved <mat-icon>check_circle</mat-icon></button>    
+          </small>
+    </div>
+      <small class="d-block text-end mt-3">
+        
+    <button (click)="readytoDeliver()" [hidden]="trueapprove <= 0"   *ngIf=" trueapprove == totalapprove" mat-button>Ready to Deliver</button>
+      </small>
+    </div>
+  
+  </main> -->
+

@@ -1,0 +1,170 @@
+
+
+<p>
+
+  <ngx-alerts></ngx-alerts>
+    <mat-toolbar color="primary">
+      <div class="example-button-container">
+       
+        <button (click)="toggleSideBar()"  mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <span class="example-spacer"></span>
+      <button *ngIf="messageslength != 0"  mat-button [matMenuTriggerFor]="message">
+        <mat-icon matBadge="{{messageslength}}" matBadgeColor="warn" class="material-icons">email</mat-icon>
+    </button>
+    <button *ngIf="messageslength == 0"  mat-button [matMenuTriggerFor]="message">
+      <mat-icon  class="material-icons">email</mat-icon>
+  </button>
+    <mat-menu #message="matMenu"> 
+
+      <div *ngFor="let data of messages">
+        <mat-card *ngIf="!data.reply" class="example-card">
+          <mat-card-header>
+              <mat-card-title>{{data.name}} Sent you a message</mat-card-title>
+              <mat-card-subtitle>
+                  {{data.message}}
+              </mat-card-subtitle>
+          </mat-card-header>
+        
+          <mat-card-content>
+              <p>
+              {{data.date}} - {{timenow(data.time)}}
+              </p>
+          </mat-card-content>
+        
+          <mat-card-actions>
+            
+        
+              <button *ngIf="!data.read" (click)="reply(data.id, data.message, data.uid)"    mat-button style=
+                  "background-color:blue; color:white">
+                Reply
+              </button>
+              
+              <button *ngIf="data.read"  disabled  mat-button style=
+                  "background-color:green; color:white">
+                  You already replied on this message.
+              </button>
+          </mat-card-actions>
+      </mat-card>
+
+      <mat-card *ngIf="data.reply" class="example-card">
+        <mat-card-header>
+            <mat-card-title>{{data.name}} Replied to your message</mat-card-title>
+            <mat-card-subtitle>
+              
+          Your Message: {{data.yourmessage}}
+            </mat-card-subtitle>
+        </mat-card-header>
+      
+
+        <mat-card-content>
+          <p>
+            
+            {{data.name}} Message:  {{data.message}}
+          </p>
+      </mat-card-content>
+
+        <mat-card-content>
+            <p>
+            {{data.date}} - {{timenow(data.time)}}
+            </p>
+        </mat-card-content>
+      
+        <mat-card-actions>
+          
+      
+            <button *ngIf="!data.read" (click)="reply(data.id, data.message, data.uid)"    mat-button style=
+                "background-color:blue; color:white">
+              Reply
+            </button>
+            
+            <button *ngIf="data.read"  disabled  mat-button style=
+                "background-color:green; color:white">
+                You already replied on this message.
+            </button>
+        </mat-card-actions>
+    </mat-card>
+      </div>
+      
+
+    </mat-menu>
+      
+      <button *ngIf="requilength > 0" mat-button [matMenuTriggerFor]="request">
+        <mat-icon matBadge="{{requilength}}" matBadgeColor="warn" class="material-icons">library_books</mat-icon>
+    </button>
+    <button *ngIf="requilength == 0" mat-button [matMenuTriggerFor]="request">
+      <mat-icon  matBadgeColor="warn" class="material-icons">library_books</mat-icon>
+  </button>
+    <mat-menu #request="matMenu"> 
+      <mat-card class="example-card" *ngFor="let data of requiNotifs">
+        <mat-card-header>
+            <mat-card-title>{{data.message}}</mat-card-title>
+            <mat-card-subtitle>
+                {{data.date}}
+            </mat-card-subtitle>
+        </mat-card-header>
+      
+        <mat-card-content>
+            <p>
+            {{data.yourRequest}}
+            </p>
+        </mat-card-content>
+      
+        <mat-card-actions>
+          
+      
+            <button *ngIf="!data.read" (click)="markasread(data.id)"   mat-button style=
+                "background-color:blue; color:white">
+              Mark As Read
+            </button>
+            
+            <button *ngIf="data.read" disabled  mat-button style=
+                "background-color:green; color:white">
+                Already Readed 
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+    </mat-menu>
+
+      <!-- *ngIf="schedlength > 0" -->
+      <button *ngIf="count > 0" [hidden]= "schedlength == 0"  mat-button [matMenuTriggerFor]="menu">
+        <mat-icon matBadge="{{count}}" matBadgeColor="warn" class="material-icons">notifications_none</mat-icon>
+    </button>
+
+    <button *ngIf="count == 0" [hidden]= "schedlength == 0"  mat-button [matMenuTriggerFor]="menu">
+      <mat-icon  class="material-icons">notifications_none</mat-icon>
+  </button>
+    <mat-menu #menu="matMenu">
+      
+      
+      <mat-card *ngFor="let data of orders">
+            
+            <mat-card-content>
+              <p>
+               {{data.email}} ordered some of your company products 
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button type="submit" [disabled]="data.read"  (click)="approve(data.id, data.uid)">Process</button>
+            
+              <p>{{now(data.wholedate)}}</p>
+            </mat-card-actions>
+          </mat-card>
+
+    </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="log">
+            <mat-icon  matBadgeColor="warn">keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #log="matMenu">
+            <button (click)="logout()" mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                    Sign Out
+            </button>
+        </mat-menu>
+    
+    </mat-toolbar>
+  </p>

@@ -1,0 +1,113 @@
+
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+
+<mat-drawer-container> 
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        
+<app-sidebar></app-sidebar>
+    </mat-drawer>
+    
+    <mat-drawer-content>
+      <img style="width: 100%; display: block; margin-left: auto; margin-right: auto;" *ngIf="loading" src="assets/loading2.gif">
+                <div [hidden]="loading">
+            <input  type="file" #fileBtn class="filebtn" (change)="fileChanged($event)" hidden />
+        <button (click)="updateProfilePic()">Upload Photo</button>
+<br>
+<br>
+                    <img *ngIf="products.file" class="avatar" src="https://ucarecdn.com/{{products.file}}/{{products.photoname}}" >
+        <br>
+            <br>
+                        
+            <!-- <form class="example-form"> -->
+            <mat-form-field appearance="fill">
+                <mat-label>Product Category</mat-label>
+                <mat-select [(ngModel)]="products.category">
+                    <mat-option value="Potato Corner">Potato Corner</mat-option>
+                    <mat-option value="Non Food">Non Food</mat-option>
+                  
+                    
+                    <mat-option value="Milk Tea">Milk Tea</mat-option>
+                    
+
+                    <mat-option value="Milkshake">Milkshake</mat-option>
+                    
+                    <mat-option value="Smoothie">Smoothie</mat-option>
+                    
+                    
+                    <mat-option value="Coffee">Coffee</mat-option>
+                    
+                    
+                    <mat-option value="Cold Coffee">Cold Coffee</mat-option>
+                    
+                    
+                    <mat-option value="Tea">Tea</mat-option>
+                    
+
+                    
+                    <mat-option value="Iced Tea - Glass">Iced Tea - Glass</mat-option>
+                      
+                    <mat-option value="Iced Tea - Pitcher">Iced Tea - Pitcher</mat-option>
+                    
+                    
+                    <mat-option value="Frappe">Frappe</mat-option>
+                    
+
+                    
+                   <mat-option value="Fresh Juice">Fresh Juice</mat-option>
+                   <mat-option value="Breakfast">Breakfast</mat-option>
+                   
+                    
+                    <mat-option value="Mojito - 7 up">Mojito - 7 up</mat-option>
+                    
+                    <mat-option value="Mojito - Red Bull">Mojito - Red Bull</mat-option>
+                    
+                    <mat-option value="Bread & Pastry">Bread & Pastry</mat-option>
+                    
+                    <mat-option value="Cakes & Cookies - Whole">Cakes & Cookies - Whole</mat-option>
+                  
+                    
+                    <mat-option value="Cakes & Cookies - Slice">Cakes & Cookies - Slice</mat-option>
+                  
+                    <mat-option value="Meals - Pizza">Meals - Pizza</mat-option>
+                  
+
+                    
+                    <mat-option value="Meals - Pasta">Meals - Pasta</mat-option>
+                  
+                    <mat-option value="Meals - East Asian Dishes">Meals - East Asian Dishes</mat-option>
+                  
+                </mat-select>
+              </mat-form-field>
+            
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Name of Product</mat-label>
+              <input [(ngModel)]="products.name" matInput placeholder="Ex. Pizza">
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+              <mat-label>Description</mat-label>
+              <textarea [(ngModel)]="products.description" matInput placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+
+                      
+            <mat-form-field  class="example-full-width">
+                <mat-label>Price</mat-label>
+                <input [(ngModel)]="products.price" type="number" matInput placeholder="Ex. 120">
+              </mat-form-field>
+
+              
+                <div class="example-button-row">
+                    <button (click)="submit()" [disabled]="!products.category || !products.name || !products.description || !products.file || !products.photoname || !products.price" mat-flat-button color="primary">Save</button>
+    
+                </div>
+          <!-- </form> -->
+              </div>
+    </mat-drawer-content>
+
+    
+</mat-drawer-container>
+
+<app-footer></app-footer>

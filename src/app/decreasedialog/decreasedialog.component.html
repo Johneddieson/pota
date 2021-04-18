@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Decrease Stock</h2>
+
+<mat-dialog-content>
+    <mat-form-field appearance="outline">
+        <mat-label>Outline form field</mat-label>
+        <input type="number" matInput [(ngModel)]="stock">
+        
+      </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button [disabled]="!stock" mat-button mat-dialog-close mat-dialog-close="{{stock}}">Update Stock</button>
+    
+    
+</mat-dialog-actions>

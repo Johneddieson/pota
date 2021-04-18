@@ -1,0 +1,23 @@
+<app-customerheader (toggleSideBarForMe)="sideBarToggler()"></app-customerheader>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        
+        <app-staffsidebar></app-staffsidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="example-form">
+<!-- <p>{{ date | date: 'h:mm a' }}</p> -->
+<ngx-alerts></ngx-alerts>
+
+<mat-form-field class="example-full-width">
+    <mat-label>Enter Some Requisition</mat-label>
+    <textarea matInput [(ngModel)]="requisition"></textarea>
+  </mat-form-field>
+            
+  
+  <button mat-stroked-button color="accent" (click)="trigger()">Send to Admin Management</button>
+        </div>
+        
+    </mat-drawer-content>
+</mat-drawer-container>

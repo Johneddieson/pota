@@ -1,0 +1,79 @@
+
+      <div>
+            <input  type="file" #fileBtn class="filebtn" (change)="fileChanged($event)" hidden />
+        <button mat-stroked-button color="primary" (click)="updateProfilePic()">Edit Photo</button>
+<br>
+<br>
+                    <img *ngIf="file" class="avatar" src="https://ucarecdn.com/{{file}}/{{photoname}}" >
+        <br>
+            <br>
+                        
+            
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Name of Product</mat-label>
+              <input [(ngModel)]="name"   matInput value="{{name}}">
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>Category</mat-label>
+                <input [(ngModel)]="category"  matInput value="{{category}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Price</mat-label>
+                <input type="number" [(ngModel)]="price"   matInput value="{{price}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Quantity</mat-label>
+                <input [(ngModel)]="quantity"   matInput value="{{quantity}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Subtotal</mat-label>
+                <input   matInput [(ngModel)]="subtotal" value="{{subtotal}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Firstname</mat-label>
+                <input [(ngModel)]="customerfirstname"   matInput value="{{customerfirstname}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Lastname</mat-label>
+                <input [(ngModel)]="customerlastname"   matInput value="{{customerlastname}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input [(ngModel)]="customeremail"   matInput value="{{customeremail}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Address</mat-label>
+                <input [(ngModel)]="customeraddress"   matInput value="{{customeraddress}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Address2</mat-label>
+                <input   matInput  value="{{customeraddress2}}" [(ngModel)]="customeraddress2">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Date</mat-label>
+                <input readonly   matInput value="{{date}}">
+              </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Wholedate</mat-label>
+                <input readonly   matInput value="{{wholedate}}">
+              </mat-form-field>
+          
+
+                <div class="example-button-row">
+                    <button mat-flat-button color="primary" (click)="edit()">Save</button>
+                    <!-- (click)="submit()" [disabled]="!products.category || !products.name || !products.description || !products.file || !products.photoname"  -->
+                </div>
+          <!-- </form> -->
+              </div>

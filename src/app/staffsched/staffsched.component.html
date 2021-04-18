@@ -1,0 +1,55 @@
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        
+<app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+
+        
+        <ngx-alerts></ngx-alerts>
+        <mat-form-field  class="example-full-width">
+            <mat-label>Staff Member</mat-label>
+            <mat-select [(ngModel)]="schedule.staff">
+                <mat-option [ngValue]="data.name" value="{{data.name}} {{data.surname}}" (click)="result(data.uid)"  *ngFor="let data of staff">{{data.name}} {{data.surname}}</mat-option>
+                
+                
+              
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Date</mat-label>
+            <input readonly  matInput [min]="date" [(ngModel)]="sched" [matDatepicker]="picker" type="text">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>From</mat-label>
+            <input matInput  [(ngModel)]="schedule.From"  [ngxTimepicker]="pick">
+            <ngx-material-timepicker #pick></ngx-material-timepicker>
+        </mat-form-field>
+
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>To</mat-label>
+            <input matInput [min]="schedule.From" [(ngModel)]="schedule.To"  [ngxTimepicker]="pack">
+            <ngx-material-timepicker #pack></ngx-material-timepicker>
+        </mat-form-field>
+
+
+        <div class="example-button-row">
+            <button (click)="setSchedule()" [hidden]="!schedule.staff || !sched || !schedule.From || !schedule.To"  mat-flat-button color="primary">Set {{schedule.staff}} Schedule</button>
+
+        </div>
+
+
+        
+          
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<app-footer></app-footer>

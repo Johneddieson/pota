@@ -1,0 +1,68 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h2>Admin</h2>
+            
+        </div>
+        <img src="https://ucarecdn.com/685a4074-8056-407d-b597-5eb63d76bcf5/Clay.png" alt="Daniel">
+    </div>
+    <mat-divider></mat-divider>
+    <h2 matSubheader>Pages</h2>
+    
+    <a  mat-list-item routerLinkActive="list-item-active" routerLink="/admin">
+        Dashboard
+        <!-- <span matBadge="23" matBadgeColor="warn">
+            
+        </span> -->
+    </a>
+
+    <a  mat-list-item routerLinkActive="list-item-active" routerLink="/Attendance">
+        
+        <span *ngIf="attendance != 0"  matBadge="{{attendance}}" matBadgeColor="warn">
+            
+        Check Attendance        
+        
+        </span>
+
+        <span *ngIf="attendance == 0" >
+                
+            Check Attendance
+            
+            </span>
+    </a>
+    <a  mat-list-item routerLinkActive="list-item-active" routerLink="/requisitionpage">
+        <span *ngIf="count != 0" matBadge="{{count}}" matBadgeColor="warn">
+                
+        Check Requisition
+        
+        </span>
+
+        <span *ngIf="count == 0" >
+                
+            Check Requisition
+            
+            </span>
+    </a>
+    
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Create New Product</a>
+    
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/products">Products</a>
+    <mat-divider></mat-divider>
+    
+    <h2 matSubheader>Others</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/sendmessagetostaff">
+        <mat-icon>email</mat-icon>
+        Send Message to Staff
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/registerstaff">
+        <mat-icon>person_add</mat-icon>
+        Create New Staff
+    </a>
+
+    
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/staffsched">
+        <mat-icon>access_time</mat-icon>
+        Create Staff Schedule
+    </a>
+</mat-nav-list>

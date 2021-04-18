@@ -1,0 +1,43 @@
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+       
+    <mat-drawer-content>
+        <ngx-alerts></ngx-alerts>
+     
+           <input  type="file" #fileBtn class="filebtn" (change)="fileChanged($event)" hidden />
+        <button mat-stroked-button color="primary" (click)="updateProfilePic()">Upload Photo</button>
+<br>
+<br>
+                    <img *ngIf="photo" class="avatar" src="{{photo}}" >
+        <br>
+            <br>
+                        
+            <mat-form-field   class="example-full-width">
+                <mat-label>Category</mat-label>
+                <input readonly    matInput value="{{category}}">
+              </mat-form-field>
+            
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Title</mat-label>
+              <input [(ngModel)]="title"  matInput value="{{title}}">
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+              <mat-label>Description</mat-label>
+              <textarea [(ngModel)]="description"   matInput value="{{description}}"></textarea>
+            </mat-form-field>
+
+                      
+           
+
+                <div class="example-button-row">
+                    <button mat-flat-button color="primary" (click)="edit()">Save</button>
+                    <!-- (click)="submit()" [disabled]="!products.category || !products.name || !products.description || !products.file || !products.photoname"  -->
+                </div>
+        
+    </mat-drawer-content>

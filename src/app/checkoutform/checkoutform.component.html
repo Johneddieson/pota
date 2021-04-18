@@ -1,0 +1,156 @@
+<div [hidden]="wow > 0">
+  <ngx-alerts></ngx-alerts>
+
+
+
+   <div *ngIf="cartItem != 0"  class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Your cart</span>
+        <span class="badge badge-secondary badge-pill">{{cartItem}}</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li *ngFor="let data of getCartDetails" class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h1 class="my-0">{{data.name}}</h1>
+            
+          <h3 class="text-muted">Quantity: {{data.quantity}}</h3>
+            <small class="text-muted">{{data.description}}</small>
+          </div>
+          <span class="text-muted">{{data.price | currency: 'QAR'}}</span>
+          
+        </li>
+        
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total</span>
+          <strong>{{total | currency: 'QAR'}}</strong>
+        </li>
+      </ul>
+
+   </div>
+
+
+   <div class="col-md-8 order-md-1" *ngIf="!isthismyfirstTime">
+    <div class="row">
+     <div class="col-md-6 mb-3">
+       <label for="firstName">First name</label>
+       <input type="text" readonly  class="form-control" id="firstName"  value="{{myfirstname}}" >
+       
+     </div>
+     <div class="col-md-6 mb-3">
+       <label for="lastName">Last name</label>
+       <input type="text"  readonly class="form-control" id="lastName"  value="{{mylastname}}" >
+     
+     </div>
+   
+     <div class="col-md-6 mb-3">
+      <label for="lastName">Mynumber</label>
+      <input type="text"  readonly class="form-control" id="lastName"  value="{{mynumber}}" >
+    
+    </div>
+  
+    </div>
+   
+   
+
+
+   <div class="mb-3">
+     <label for="address">Address</label>
+     <input type="text" readonly  class="form-control" id="address" value="{{myaddress}}">
+     
+   </div>
+
+   <div class="mb-3">
+     <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+     <input type="text" readonly  class="form-control" id="address2" value="{{myaddress2}}">
+   </div>
+
+  
+
+   <hr class="mb-4">
+   <button id="button" (click)="notfirstTime()"   class="btn btn-primary btn-lg btn-block" type="submit">Send your Orders</button>
+ </div>
+
+  
+<div class="col-md-8 order-md-1" *ngIf="isthismyfirstTime">
+         <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" [(ngModel)]="firstname" class="form-control" id="firstName"  value="" >
+            
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" [(ngModel)]="lastname" class="form-control" id="lastName"  value="" >
+          
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="username">TelePhone Number</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+            </div>
+            <input  class="form-control phoneField" 
+    ng2TelInput
+     
+    (hasError)="onError($event)"
+    [ng2TelInputOptions]="{'preferredCountries': ['us', 'qa', 'ph']}"
+    (countryChange)="onCountryChange($event)"
+    type="text" pattern="^[\s0-9]*$"  [(ngModel)]="phoneReq"
+  name="phone"  style="width: 100% !important" />
+
+          </div>
+        </div>
+        <span class="text-danger" *ngIf="!hasError">Phone Number is Invalid</span>
+  <br>
+  <span class="text-danger" *ngIf="!(country === 'qa' || country === 'ph')">The Country number format must be Philippines or Qatar only.</span>
+    <br>
+        
+
+
+        <div class="mb-3">
+          <label for="address">Address</label>
+          <input type="text" [(ngModel)]="address" class="form-control" id="address" placeholder="Please Enter a valid address based on Qatar or Philippines if not we will not process and remove your order" >
+          
+        </div>
+
+        <div class="mb-3">
+          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" [(ngModel)]="address2" class="form-control" id="address2" placeholder="Please Enter a valid address based on Qatar or Philippines if not we will not process and remove your order">
+        </div>
+
+       
+
+        <hr class="mb-4">
+        <button id="button" *ngIf="country === 'qa' || country === 'ph'" [disabled]="!firstname || !lastname || !address || !address2 || !hasError" (click)="wew()"   class="btn btn-primary btn-lg btn-block" type="submit">Send your orders</button>
+      </div>
+
+      
+  
+      
+    </div> 
+
+  </div>
+
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <div *ngIf="cartItem == 0">
+    <p class="nopost">No Cart Item</p>
+  </div>
+
+  <div *ngIf="wow > 0">
+    
+<ngx-alerts></ngx-alerts>
+  </div>

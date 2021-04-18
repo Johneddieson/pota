@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer {
+    width: 350px;
+
+}
+
+
+mat-drawer-container {
+    height: 100%;
+}
+
+.mat-card {
+    max-width: 750px;
+    
+    margin: auto;
+}
+
+.mat-card-avatar {
+    background-image: url('https://ucarecdn.com/685a4074-8056-407d-b597-5eb63d76bcf5/Clay.png');
+    background-size: cover;
+}
+
+.mat-card-actions {
+    display: flex;
+}
+
+.mat-card-actions .flex-spacer {
+    width: 100%;
+}
+.paragraph {
+    font-size: 24px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

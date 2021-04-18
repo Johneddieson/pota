@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Increase Stock</h2>
+
+<mat-dialog-content>
+    <mat-form-field appearance="outline">
+        <mat-label>Your Reply</mat-label>
+        <textarea [(ngModel)]="reply" class="text" matInput >
+        </textarea>
+      </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button *ngIf="reply"  mat-raised-button color="primary" mat-dialog-close mat-dialog-close="{{reply}}">Send your Reply</button>
+    
+    
+</mat-dialog-actions>

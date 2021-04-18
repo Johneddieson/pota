@@ -1,0 +1,97 @@
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    
+    <mat-drawer-content>
+        <ngx-alerts></ngx-alerts>
+        <div class="row">
+            <div class="col">
+               <app-filter (toggleSideBarForMe)="event($event)"></app-filter>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let data of products">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="bd-placeholder img card img top" width="100%" src="https://ucarecdn.com/{{data.file}}/{{data.photoname}}" />
+                            
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <strong>{{data.category}} - {{data.name}} {{data.stock}} stocks</strong>
+                                
+                                  
+                                   
+                                  
+                                  
+                                 
+                                </p>
+                                <p class="card-text">{{data.description}}</p>
+                            
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button routerLink="/product/{{data.id}}"  type="button" class="btn btn-sm btn-primary product-btn">Edit</button>
+                                        
+                                        <button (click)="openDialog(data.id, data.category, data.name, data.stock)"  type="button" class="btn btn-sm btn-secondary product-btn">Increase Stock</button>
+                                        
+                                        <button (click)="decreaseDialog(data.id, data.category, data.name, data.stock)"  type="button" class="btn btn-sm btn-danger product-btn">Decrease Stock</button>
+                                    </div>
+                                    <small class="text-muted">{{data.price | currency:'QAR'}}</small>
+                                   
+                                </div>
+                            </div>
+                            
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       
+     
+       
+       
+       
+         <!-- <div class="row">
+            <div class="col-md-4" *ngFor="let data of products">
+                <div class="card mb-4 shadow-sm">
+                        <img  src="https://ucarecdn.com/{{data.file}}/{{data.photoname}}" class="bd-placeholder-img card-img-top" width="100%">
+                        
+                        <div class="card-body">
+                            <h1>{{data.category}}</h1>
+                            <h4>{{data.name}} - {{data.price | currency:'QAR'}}</h4>
+                            <p class="card-text">{{data.description}}</p>
+                            
+                             <h5 class="text-muted">{{data.price}}QAR</h5> 
+                            <button routerLink="/product/{{data.id}}" type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                   
+                         
+                            <div class="d-flex justify-content-between align-items-center"> 
+                                <div class="btn-group">
+                                    
+                                    <button  (click)="openDialog(data.id, data.category, data.name, data.stock)" type="button" class="btn btn-sm btn-outline-secondary">Increase Stock</button>
+                                 
+                                    <button  (click)="decreaseDialog(data.id, data.category, data.name, data.stock)" type="button" class="btn btn-sm btn-outline-secondary">Decrease Stock</button>
+                                  
+                                </div>
+                            </div>   
+                            <small class="text-muted">{{time(data.date)}}</small>
+                            <br>
+                            <small  class="text-muted">{{data.stock}} stock</small>
+                        </div>
+                    </div>
+                    
+                    
+            </div>
+            
+            
+            
+        </div> -->
+         
+       
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<app-footer></app-footer>

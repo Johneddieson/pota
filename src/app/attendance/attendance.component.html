@@ -1,0 +1,33 @@
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        
+<app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+     
+     
+        <mat-list>
+            <div mat-subheader>All Users Attendance</div>
+            <mat-list-item *ngFor="let data of attendance">
+              <mat-icon mat-list-icon>av_timer</mat-icon>
+              <div *ngIf="data.timein" mat-line>{{data.staffname}} Time in at {{data.timein}}</div>
+              <div *ngIf="data.timeout" mat-line>{{data.staffname}} Time out at {{data.timeout}}</div>
+            
+              <div mat-line> {{data.date}} from {{data.from}} to {{data.to}} </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <!-- <div mat-subheader>Notes</div> -->
+            
+          </mat-list>
+    
+      
+
+
+        
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<!-- <app-footer></app-footer> -->

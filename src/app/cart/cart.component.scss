@@ -1,0 +1,60 @@
+
+  
+
+  .content h4 {
+    margin-top: 10px;
+
+  }
+  
+
+
+  .content span{
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .cart_section {
+    padding: 40px 0;
+
+  }
+
+  .delete {
+    color: red;
+  }
+  .removeall {
+    color: red;
+  }
+  
+
+  .btn {
+    background-color: rgb(94, 0, 0);
+    border-radius: 50%;
+    font-size: 16px;
+    color: #fff;
+    margin: 0 8px;
+  }
+
+  .nopost {
+       
+    font-size: 24px;
+    font-weight: 500;
+    color: #303940;
+    text-align: center;
+   }

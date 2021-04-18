@@ -1,0 +1,63 @@
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        
+<app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <ngx-alerts></ngx-alerts>
+        <div >
+    <input  type="file" #fileBtn class="filebtn" (change)="fileChanged($event)" hidden />
+<button (click)="updateProfilePic()" mat-stroked-button color="primary">Upload Photo</button>
+<br>
+<br>
+            <img *ngIf="photo" class="avatar" src="{{photo}}" >
+<br>
+    <br>
+                
+    <!-- <form class="example-form"> -->
+        <mat-form-field class="example-full-width">
+            <mat-label>What Do you want to Create?</mat-label>
+            <mat-select [(ngModel)]="category">
+                <mat-option value="Cafe News">Cafe News</mat-option>
+                
+                <mat-option value="Promotions">Promotions</mat-option>
+                
+                <mat-option value="Announcement">Announcement</mat-option>
+                
+                
+              
+            </mat-select>
+          </mat-form-field>
+    
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input [(ngModel)]="title" matInput placeholder="Enter Some Title">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea [(ngModel)]="description"  matInput placeholder="Enter Some Description"></textarea>
+    </mat-form-field>
+
+              
+      
+        <div class="example-button-row">
+            <button mat-flat-button color="primary" [hidden]="!photo || !title || !description" (click)="create()">Create</button>
+
+        </div>
+      </div>
+
+        
+
+
+
+
+        
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<app-footer></app-footer>

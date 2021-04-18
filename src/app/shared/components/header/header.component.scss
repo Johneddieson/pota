@@ -1,0 +1,31 @@
+ul li {
+    list-style: none;
+}
+
+.toolbar {
+    background: #031122;
+  color: #fff;
+  }
+
+  .menu {
+    
+    background: #031122;
+  color: #fff;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+
+
+// .example-header-image {
+//    background-image: url('https://ucarecdn.com/685a4074-8056-407d-b597-5eb63d76bcf5/Clay.png');
+//   background-size: cover;
+// }
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

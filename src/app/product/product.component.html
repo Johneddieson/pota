@@ -1,0 +1,44 @@
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+       
+    <mat-drawer-content>
+      <img style="width: 50%; display: block; margin-left: auto; margin-right: auto;" *ngIf="loading" src="assets/loading2.gif">
+  
+      <div [hidden]="loading">
+            <input  type="file" #fileBtn class="filebtn" (change)="fileChanged($event)" hidden />
+        <button mat-stroked-button color="primary" (click)="updateProfilePic()">Upload Photo</button>
+<br>
+<br>
+                    <img *ngIf="file" class="avatar" src="https://ucarecdn.com/{{file}}/{{photoname}}" >
+        <br>
+            <br>
+                        
+            
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Name of Product</mat-label>
+              <input [(ngModel)]="name"  matInput value="{{name}}">
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+              <mat-label>Description</mat-label>
+              <textarea [(ngModel)]="description"  matInput value="{{description}}"></textarea>
+            </mat-form-field>
+
+                      
+            <mat-form-field *ngIf="price"  class="example-full-width">
+                <mat-label>Price</mat-label>
+                <input [(ngModel)]="price"  type="number" matInput value="{{price}}">
+              </mat-form-field>
+
+                <div class="example-button-row">
+                    <button mat-flat-button color="primary" (click)="edit()">Save</button>
+                    <!-- (click)="submit()" [disabled]="!products.category || !products.name || !products.description || !products.file || !products.photoname"  -->
+                </div>
+          <!-- </form> -->
+              </div>
+    </mat-drawer-content>

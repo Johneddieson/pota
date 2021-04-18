@@ -1,0 +1,46 @@
+
+<app-customerheader (toggleSideBarForMe)="sideBarToggler()"></app-customerheader>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        
+        <app-staffsidebar></app-staffsidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+   
+      <div *ngIf="!final" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input [(ngModel)]="title" matInput>
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>Paragraph</mat-label>
+          <textarea [(ngModel)]="paragraph" matInput></textarea>
+        </mat-form-field>
+      
+        
+            
+       <button (click)="finalize()" [hidden]="!title || !paragraph"  mat-stroked-button color="accent">Finalize</button>
+      
+      </div>    
+      
+      
+      <table id="table" *ngIf="final">
+          <tr>
+            <th>{{title}}</th>
+          </tr>
+          <tr>
+            <td>{{paragraph}}</td>
+          </tr>
+         
+        </table>
+        <br>
+        <br>
+        <br>
+        <button *ngIf="final" (click)="download()" mat-stroked-button color="primary">Download in PDF</button> 
+      
+      
+
+      </mat-drawer-content>
+   

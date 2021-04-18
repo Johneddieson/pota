@@ -1,0 +1,97 @@
+<!-- <header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 routerLink="/home">Home</h4>
+            </div>
+
+            <div class="col-md-6">
+                <h4 (click)="signout()">Log Out</h4>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 text-right">
+            <div class="cart-icon" routerLink="/cart">
+                    <i class="fa fa-shopping-cart"></i>
+                <div class="cart_value" [hidden]="cartItem == 0">
+                    {{cartItem}}
+                </div>
+            </div>
+        </div>
+    </div>
+</header> -->
+
+
+<p>
+    <mat-toolbar class="toolbar">
+    
+    
+        <button routerLink="/home" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>home</mat-icon>
+      </button>
+
+      
+      <span class="example-spacer"></span>
+     
+      
+     
+      <button mat-icon-button *ngIf="count > 0"  [matMenuTriggerFor]="menu" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon matBadge="{{count}}" matBadgeColor="warn">mail_outline</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="count == 0" [matMenuTriggerFor]="menu" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>mail_outline</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <mat-card class="example-card" *ngFor="let data of approved">
+            <mat-card-header>
+                <mat-card-title>Your order has been approved.</mat-card-title>
+                <mat-card-subtitle>
+                    {{data.date}}
+                </mat-card-subtitle>
+            </mat-card-header>
+          
+            <mat-card-content>
+                <p>
+                  {{data.category}}
+                </p>
+            </mat-card-content>
+          
+            <mat-card-actions>
+              
+          
+                <button *ngIf="!data.read" routerLink="/payorder/{{data.id}}" mat-button style=
+                    "background-color:blue; color:white">
+                    Pay {{data.subtotal | currency: 'QAR'}} now
+                </button>
+                
+                <button disabled *ngIf="data.read" mat-button style=
+                    "background-color:green; color:white">
+                    Paid
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+    </mat-menu>
+
+      <button routerLink="/cart" *ngIf="cartItem > 0" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon matBadge="{{cartItem}}" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+
+      
+      <button routerLink="/cart" *ngIf="cartItem == 0" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button mat-button [matMenuTriggerFor]="log">
+        <mat-icon  matBadgeColor="warn">keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #log="matMenu">
+        <button (click)="signout()" mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+                Sign Out
+        </button>
+    </mat-menu>
+    
+    </mat-toolbar>
+  </p>
+

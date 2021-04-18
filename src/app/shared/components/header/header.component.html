@@ -1,0 +1,137 @@
+<mat-toolbar class="toolbar">
+    <mat-toolbar-row>
+        <!-- <button (click)="toggleSideBar()" mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button> -->
+        <div class="example-button-container">
+            <button (click)="toggleSideBar()" mat-mini-fab class="menu" aria-label="Example icon button with a menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
+        <!-- <span>APP LOGO</span> -->
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                
+                <li>
+
+                    <button *ngIf="totalinventoryFortoday != 0" routerLink="/Inventoryforadmin" mat-button>
+                        
+                    <span class="material-icons"  matBadge="{{totalinventoryFortoday}}" matBadgeColor="warn">
+                        inventory
+                        </span>
+                    </button>
+                    
+                    <button *ngIf="totalinventoryFortoday == 0" routerLink="/Inventoryforadmin" mat-button>
+                        
+                        <span class="material-icons">
+                            inventory
+                            </span>
+                        </button>
+                    
+                    
+                        <button *ngIf="totalofhistory != 0" routerLink="/history"  mat-button>
+                            <mat-icon matBadge="{{totalofhistory}}" matBadgeColor="danger" class="material-icons">history</mat-icon>
+                        </button>
+                        
+                        <button *ngIf="totalofhistory == 0" routerLink="/history"  mat-button>
+                            <mat-icon  class="material-icons">history</mat-icon>
+                        </button>
+
+                    
+                    <button *ngIf="count != 0" mat-button [matMenuTriggerFor]="replies">
+                        <mat-icon matBadge="{{count}}" matBadgeColor="warn" class="material-icons">email</mat-icon>
+                    </button>
+                    
+                    <button *ngIf="count == 0" mat-button [matMenuTriggerFor]="replies">
+                        <mat-icon  class="material-icons">email</mat-icon>
+                    </button>
+                    <mat-menu #replies="matMenu">
+
+                        <div *ngFor="let data of rep">
+                            <mat-card *ngIf="!data.isnotreplied" class="example-card">
+                                <mat-card-header>
+                                    <mat-card-title>{{data.sender}} Replied to your message</mat-card-title>
+                                    <mat-card-subtitle>
+                                      Your Message:   {{data.mymessage}}
+                                    </mat-card-subtitle>
+                                </mat-card-header>
+                              
+                                
+                                <mat-card-content>
+                                    <p>
+                                    {{data.sender}} Message:  {{data.sendermessage}}
+                                    </p>
+                                </mat-card-content>
+                                <mat-card-content>
+                                    <p>
+                                    {{data.date}} - {{timenow(data.time)}}
+                                    </p>
+                                </mat-card-content>
+                              
+                                <mat-card-actions>
+                                  
+                              
+                                    <button *ngIf="!data.read" (click)="reply(data.id, data.sendermessage, data.senderuid)"    mat-button style=
+                                        "background-color:blue; color:white">
+                                      Reply
+                                    </button>
+                                    
+                                    <button *ngIf="data.read"  disabled  mat-button style=
+                                        "background-color:green; color:white">
+                                        You already replied on this message.
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                            <mat-card *ngIf="data.isnotreplied" class="example-card">
+                                <mat-card-header>
+                                    <mat-card-title>{{data.sender}} Sent you a message</mat-card-title>
+                                    <mat-card-subtitle>
+                                      
+                                      {{data.sendermessage}}
+                                    </mat-card-subtitle>
+                                </mat-card-header>
+                              
+                                
+                                <mat-card-content>
+                                    <p>
+                                    {{data.date}} - {{timenow(data.time)}}
+                                    </p>
+                                </mat-card-content>
+                              
+                                <mat-card-actions>
+                                  
+                              
+                                    <button *ngIf="!data.read" (click)="reply(data.id, data.sendermessage, data.senderuid)"    mat-button style=
+                                        "background-color:blue; color:white">
+                                      Reply
+                                    </button>
+                                    
+                                    <button *ngIf="data.read"  disabled  mat-button style=
+                                        "background-color:green; color:white">
+                                        You already replied on this message.
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                       
+                    </mat-menu>
+
+                    <button mat-button routerLink="/Create">
+                        <img src="https://img.icons8.com/fluent/30/000000/create.png"/>
+                    </button>
+
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button (click)="logout()" mat-menu-item>
+                            <mat-icon>exit_to_app</mat-icon>
+                                Sign Out
+                        </button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

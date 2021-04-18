@@ -1,0 +1,73 @@
+<div class="card filters">
+    <div class="card-header">
+    <strong>Product Category</strong>    
+    </div>
+
+    <div class="card-body">
+
+        <div class="form-group">
+                <mat-select [(ngModel)]="fill"  placeholder="Choose Category">
+                    
+                  
+                    <mat-option value="All Categories">All Categories</mat-option>
+                    <mat-option value="Non Food">Non Food</mat-option>
+                    <mat-option value="Potato Corner">Potato Corner</mat-option>
+                    
+                    <mat-option value="Milk Tea">Milk Tea</mat-option>
+                    
+
+                    <mat-option value="Milkshake">Milkshake</mat-option>
+                    
+                    <mat-option value="Smoothie">Smoothie</mat-option>
+                    
+                    
+                    <mat-option value="Coffee">Coffee</mat-option>
+                    
+                    
+                    <mat-option value="Cold Coffee">Cold Coffee</mat-option>
+                    
+                    
+                    <mat-option value="Tea">Tea</mat-option>
+                    
+
+                    
+                    <mat-option value="Iced Tea - Glass">Iced Tea - Glass</mat-option>
+                      
+                    <mat-option value="Iced Tea - Pitcher">Iced Tea - Pitcher</mat-option>
+                    
+                    
+                    <mat-option value="Frappe">Frappe</mat-option>
+                    
+
+                    
+                   <mat-option value="Fresh Juice">Fresh Juice</mat-option>
+                   <mat-option value="Breakfast">Breakfast</mat-option>
+                   
+                    
+                    <mat-option value="Mojito - 7 up">Mojito - 7 up</mat-option>
+                    
+                    <mat-option value="Mojito - Red Bull">Mojito - Red Bull</mat-option>
+                    
+                    <mat-option value="Bread & Pastry">Bread & Pastry</mat-option>
+                    
+                    <mat-option value="Cakes & Cookies - Whole">Cakes & Cookies - Whole</mat-option>
+                  
+                    
+                    <mat-option value="Cakes & Cookies - Slice">Cakes & Cookies - Slice</mat-option>
+                  
+                    <mat-option value="Meals - Pizza">Meals - Pizza</mat-option>
+                  
+
+                    
+                    <mat-option value="Meals - Pasta">Meals - Pasta</mat-option>
+                  
+                    <mat-option value="Meals - East Asian Dishes">Meals - East Asian Dishes</mat-option>
+                  
+                </mat-select>
+            
+            <!-- <label for="to">To</label>
+            <input type="number" class="form-control"> -->
+        </div>
+        <button class="btn btn-primary btn-block btn-sm" *ngIf="fill" (click)="bobo()">Filter Category</button>
+    </div>
+</div>

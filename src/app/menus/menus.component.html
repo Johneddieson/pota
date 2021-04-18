@@ -1,0 +1,46 @@
+<div class="row">
+
+    <div class="col">
+        <app-filter (toggleSideBarForMe)="event($event)"></app-filter>
+  
+  
+          </div>
+
+        <div class="col-md-10">
+            
+             <section class="product">
+                <div class="container text-center">
+                    <div class="row">
+                        <ngx-alerts></ngx-alerts>
+                        <div class="col-md-3" *ngFor="let data of products">
+                            <div class="box">
+                                <h1>{{data.category}}</h1>
+                                <strong>{{data.name}}</strong>
+                                <p class="card-text">{{data.description}}</p>
+                                <div class="product_image">
+                                        <img src="https://ucarecdn.com/{{data.file}}/{{data.photoname}}" width="50%" alt="P1">
+                                </div>
+                                <div class="content" [hidden]="data.stock == 0">
+                                    <h4>{{data.price | currency:'QAR'}}</h4>
+                                    <button type="button" class="btn"><i class="fa fa-plus" (click)="inc(data)"></i></button>
+                                    <span>{{data.quantity}}</span>
+                                    <button type="button" class="btn"><i class="fa fa-minus" (click)="dec(data)"></i></button>
+                                   
+                                </div>
+                                <button *ngIf="data.stock > 0" type="button" class="cart_btn" (click)="addCart(data)">Add to Cart</button>
+                                <button *ngIf="data.stock == 0" type="button" class="cart_btn" disabled >Out of Stock</button>
+                            
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </section> 
+        </div>
+  
+</div>
+   

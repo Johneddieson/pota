@@ -1,0 +1,45 @@
+<app-customerheader (toggleSideBarForMe)="sideBarToggler()"></app-customerheader>
+
+<mat-drawer-container>
+    <mat-drawer  mode="side" [opened]="!sideBarOpen">
+        
+        <app-staffsidebar></app-staffsidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+       
+
+
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        
+          <div class="container bootstrap snippets bootdey">
+            <mat-form-field appearance="fill">
+                <mat-label>To:</mat-label>
+                <input value="Admin Management" readonly matInput>
+              </mat-form-field>
+
+              <div class="ms-body">
+                    
+                   
+                    
+                 
+                    
+                    
+                    
+                   
+                    
+                   
+                    
+                <div class="msb-reply">
+                    <textarea [(ngModel)]="message"  placeholder="What's on your mind..."></textarea>
+                    <button (click)="send()"><i class="fa fa-paper-plane-o"></i></button>
+                </div>
+            </div>
+            
+
+        
+        </div>  
+
+        
+    </mat-drawer-content>
+</mat-drawer-container>

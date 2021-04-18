@@ -1,0 +1,59 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h2>{{name}} {{surname}}</h2>
+            
+        </div>
+        <img src="https://ucarecdn.com/685a4074-8056-407d-b597-5eb63d76bcf5/Clay.png" alt="Daniel">
+    </div>
+    <mat-divider></mat-divider>
+    <h2 matSubheader>Pages</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/CreatereportfromWord" target="_blank">Create Report in Word format</a>
+    
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/CreatereportfromExcel" target="_blank">Create Report in Excel format</a>
+    
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/CreatereportfromPDF" target="_blank">Create Report in PDF format</a>
+    
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/CreatereportfromJPG" target="_blank">Create Report in jpeg format</a>
+    <mat-divider></mat-divider>
+    
+    <h2 matSubheader>Important Pages</h2>
+    
+    
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/sendmessagetoadmin">
+        
+        <span class="material-icons">
+            email
+            </span>
+            Send Message to Admin
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/Inventory">
+        
+        <span matBadge="{{count}}" matBadgeColor="warn"  class="material-icons">
+            inventory
+            </span>
+            Check Inventory
+    </a>
+
+    
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/Requisition">
+        <span class="material-icons">
+            transit_enterexit
+            </span>
+        Requisition for Purchase
+    </a>
+
+    <a *ngIf="totalsales != 0" mat-list-item routerLinkActive="list-item-active" routerLink="/SalesForToday">
+        <span matBadge="{{totalsales}}" matBadgeColor="warn" class="material-icons">
+            money
+            </span>
+        Check the total Sales Today
+    </a>
+    
+    <a *ngIf="totalsales == 0" mat-list-item routerLinkActive="list-item-active" routerLink="/SalesForToday">
+        <span  class="material-icons">
+            money
+            </span>
+        Check the total Sales Today
+    </a>
+</mat-nav-list>

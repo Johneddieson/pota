@@ -1,0 +1,43 @@
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!sideBarOpen">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+       
+    <mat-drawer-content>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        
+        <div class="container bootstrap snippets bootdey">
+            <ngx-alerts></ngx-alerts>
+            <mat-form-field appearance="fill">
+                <mat-label>Staff Member</mat-label>
+                <mat-select [(ngModel)]="value">
+                    <mat-option value="Send To All">Send To All</mat-option>
+                    <mat-option [ngValue]="data.name" value="{{data.id}}"  *ngFor="let data of staff">{{data.name}} {{data.surname}}</mat-option>
+                    
+                    
+                  
+                </mat-select>
+              </mat-form-field>
+                
+                <div class="ms-body">
+                    
+                   
+                    
+                 
+                    
+                    
+                    
+                   
+                    
+                   
+                    
+                    <div class="msb-reply">
+                        <textarea [(ngModel)]="message"  placeholder="What's on your mind..."></textarea>
+                        <button [hidden]="!value || !message" (click)="send()"><i class="fa fa-paper-plane-o"></i></button>
+                    </div>
+                </div>
+        </div>
+    </mat-drawer-content>

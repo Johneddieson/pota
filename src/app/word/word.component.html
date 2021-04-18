@@ -1,0 +1,29 @@
+<app-customerheader (toggleSideBarForMe)="sideBarToggler()"></app-customerheader>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        
+        <app-staffsidebar></app-staffsidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        
+<ngx-alerts></ngx-alerts>
+           
+    
+<div class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Title Header</mat-label>
+      <input [(ngModel)]="Title" matInput placeholder="My Report for Today">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Paragraph</mat-label>
+      <textarea [(ngModel)]="paragraph" matInput placeholder="Enter Some Description based on your report"></textarea>
+    </mat-form-field>
+</div>
+   
+ <button mat-flat-button color="primary" id="button-word">Download in Word</button>
+        
+    </mat-drawer-content>
+</mat-drawer-container>
+
